@@ -59,6 +59,7 @@ jobs:
           elif [[ "${{ matrix.images }}" =~ "eclipse-temurin:17" ]]; then
             :
           elif [[ "${{ matrix.images }}" =~ "eclipse-temurin:21" ]]; then
+            latest_tag="${latest_tag} --tag ${{ secrets.DOCKER_USERNAME }}/jasypt:${{ steps.get_version.outputs.VERSION }}"
             latest_tag="${latest_tag} --tag ${{ secrets.DOCKER_USERNAME }}/jasypt:${{ steps.get_version.outputs.VERSION }}-jre21"
             if [ "$latest" = "${{ steps.get_version.outputs.VERSION }}"  ]; then
                 latest_tag="${latest_tag} --tag ${{ secrets.DOCKER_USERNAME }}/jasypt:latest-jre21"

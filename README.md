@@ -14,6 +14,31 @@ PBE ALGORITHMS:      [PBEWITHHMACSHA1ANDAES_128, PBEWITHHMACSHA1ANDAES_256, PBEW
 ```
 
 ## encrypt.sh
+```bash
+docker run -it --rm dyrnq/jasypt:1.9.3 encrypt.sh
+
+USAGE: encrypt.sh [ARGUMENTS]
+
+  * Arguments must apply to format:
+
+      "arg1=value1 arg2=value2 arg3=value3 ..."
+
+  * Required arguments:
+
+      input
+      password
+
+  * Optional arguments:
+
+      verbose
+      algorithm
+      keyObtentionIterations
+      saltGeneratorClassName
+      providerName
+      providerClassName
+      stringOutputType
+      ivGeneratorClassName
+```
 
 ```bash
 docker run -it --rm dyrnq/jasypt:1.9.3 encrypt.sh \
@@ -25,6 +50,32 @@ ivGeneratorClassName="org.jasypt.iv.RandomIvGenerator" \
 saltGeneratorClassName="org.jasypt.salt.RandomSaltGenerator"
 ```
 ## decrypt.sh
+
+```bash
+docker run -it --rm dyrnq/jasypt:1.9.3 decrypt.sh
+
+USAGE: decrypt.sh [ARGUMENTS]
+
+  * Arguments must apply to format:
+
+      "arg1=value1 arg2=value2 arg3=value3 ..."
+
+  * Required arguments:
+
+      input
+      password
+
+  * Optional arguments:
+
+      verbose
+      algorithm
+      keyObtentionIterations
+      saltGeneratorClassName
+      providerName
+      providerClassName
+      stringOutputType
+      ivGeneratorClassName
+```
 
 ```bash
 docker run -it --rm dyrnq/jasypt:1.9.3 decrypt.sh \
@@ -44,3 +95,7 @@ input="hello" \
 verbose=false \
 algorithm=MD5
 ```
+
+- <https://github.com/dyrnq/docker-jasypt>
+- <https://github.com/jasypt/jasypt>
+- <https://github.com/jasypt/jasypt/tree/master/jasypt-dist/src/main/bin>
